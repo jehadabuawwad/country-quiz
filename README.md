@@ -10,7 +10,6 @@ VS Code
 
 - JavaScript
 - Next.js
-- Redux
 - Styled Coponents
 - Yarn Package Manager
 
