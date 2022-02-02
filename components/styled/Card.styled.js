@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Question = styled.div`
+export const Card = styled.div`
   width: 464px;
   height: 515px;
   border-radius: 24px;
@@ -8,7 +8,6 @@ export const Question = styled.div`
   & > div > #question-title {
     width: 273px;
     margin-top: -50px;
-    font-family: "Poppins", sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 36px;
@@ -17,5 +16,15 @@ export const Question = styled.div`
     color: #f2f2f2;
   }
   & > div > #question-world-image {
+  }
+  & > div > #question-text {
+    text-align: center;
+    width: 400px;
+    height: 36px;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 36px;
+    color: #2f527b;
+    margin-top: -50px;
   }
 `;

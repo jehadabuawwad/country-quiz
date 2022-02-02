@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Flex = styled.div`
   display: flex;
-  & > div,
-  & > ul {
+  & > div {
     flex: 1;
+    flex-grow: 1;
   }
 `;
