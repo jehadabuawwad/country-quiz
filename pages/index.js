@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 import { Container } from "../components/styled/Container.styled";
-import QuestionSection from "../components/Question";
+import Card from "../components/Card";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
 
       <Container width='100%' height='100vh'>
-        <QuestionSection />
+        <Card />
       </Container>
 
       <footer></footer>
