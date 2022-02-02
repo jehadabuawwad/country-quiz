@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { FiXCircle } from "react-icons/fi";
+import { BsCheckLg } from "react-icons/bs";
 
 import { Container } from "./styled/Container.styled";
 import { Flex } from "../styles/Styled.Flex";
@@ -12,7 +14,24 @@ import { questions } from "../public/data";
 
 const QuestionSection = () => {
   const [id, setId] = useState(1);
+  const [selected, Select] = useState("");
+  const [truthness, setTruthness] = useState(false);
+  const [mark, setMark] = useState(0);
+
   const { text, options } = questions[id];
+
+  const handleOptionSelect = (option) => {
+    Select(option);
+    option.isTrue && setTruthness(true);
+    option.isTrue ? setMark(mark + 1) : setMark(mark - 1);
+  };
+
+  const handleClickNext = (option) => {
+    setId(id + 1);
+    setTruthness(false);
+    Select("");
+    console.log(mark);
+  };
   return (
     <>
       <Card>
@@ -31,12 +50,42 @@ const QuestionSection = () => {
         <Container id='question-options'>
           {options.map((item, key) => (
             <>
-              <Option key={key}>{item.title}</Option>
+              {item.isTrue ? (
+                <Option
+                  onClick={() => handleOptionSelect(item)}
+                  key={key}
+                  bg={({ theme }) => theme.colors.trueAnswer}
+                  selected={selected}
+                >
+                  {item.title}
+                  {selected && (
+                    <Flex>
+                      <BsCheckLg />
+                    </Flex>
+                  )}
+                </Option>
+              ) : (
+                <Option
+                  onClick={() => handleOptionSelect(item)}
+                  key={key}
+                  bg={({ theme }) => theme.colors.wrongAnswer}
+                  selected={selected}
+                >
+                  {item.title}
+                  {selected && (
+                    <Flex>
+                      <FiXCircle />
+                    </Flex>
+                  )}
+                </Option>
+              )}
             </>
           ))}
         </Container>
         <Flex id='question-buttom'>
-          <Button onClick={() => setId(id + 1)}>Next</Button>
+          {selected && truthness && (
+            <Button onClick={() => handleClickNext()}>Next</Button>
+          )}
         </Flex>
       </Card>
     </>

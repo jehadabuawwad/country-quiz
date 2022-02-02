@@ -9,6 +9,8 @@ const Theme = {
     hoveredButtonText: "#FFF",
     nextButtonBackgroundColor: "#F9A826",
     white: "#FFF",
+    trueAnswer: "#60BF88",
+    wrongAnswer: "#EA8282",
   },
   mobile: "576px",
   laptop: "960px",
