@@ -1,8 +1,15 @@
+import { useState } from "react";
+
 import { Question } from "./styled/Card.styled";
 import { Flex } from "../styles/Styled.Flex";
 import { Photo } from "./styled/Photo.styled";
+
 import QuestionImage from "../public/images/undraw_adventure_4hum 1.svg";
+import { questions } from "../public/data";
+
 const QuestionSection = () => {
+  const [id, setId] = useState(1);
+
   return (
     <>
       <Question>
@@ -15,6 +22,7 @@ const QuestionSection = () => {
             alt='question-image'
           />
         </Flex>
+        <Flex id='question-body'></Flex>
       </Question>
     </>
   );
