@@ -1,5 +1,8 @@
 import Head from "next/head";
 
+import { Container } from "../components/styled/Container.styled";
+import QuestionSection from "../components/Question";
+
 export default function Home() {
   return (
     <div>
@@ -9,8 +12,10 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main></main>
-      <p>test</p>
+      <Container width='100%' height='100vh'>
+        <QuestionSection />
+      </Container>
+
       <footer></footer>
     </div>
   );
