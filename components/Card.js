@@ -1,19 +1,18 @@
 import { useState } from "react";
-import { FiXCircle } from "react-icons/fi";
-import { BsCheckLg } from "react-icons/bs";
 
 import Container from "../styles/Styled.Container";
 import Flex from "../styles/Styled.Flex";
 
+import Result from "./Result";
+import Option from "./Option";
+
 import { StyledCard } from "./styled/Card.styled";
 import { StyledText } from "./styled/Text.styled";
 import { StyledImage } from "./styled/Image.styled";
-import { StyledOption } from "./styled/Option.styled";
 import { StyledButton } from "./styled/Button.styled";
 
 import QuestionImage from "../public/images/undraw_adventure_4hum 1.svg";
 import { questions } from "../public/data";
-import { Result } from "./Result";
 
 const Card = () => {
   const [id, setId] = useState(0);
@@ -37,7 +36,7 @@ const Card = () => {
 
   const handleClickTryAgain = () => {
     setId(0);
-    setMark(0)
+    setMark(0);
     setTruthness(false);
     setSelect("");
   };
@@ -62,42 +61,20 @@ const Card = () => {
           </>
         )}
       </Flex>
+      
       <Container>
-        <StyledText tp="-40px" question>{text}</StyledText>
+        <StyledText tp='-40px' question>
+          {text}
+        </StyledText>
         {id < questions.length ? (
-          options &&
-          options.map((item, key) => (
-            <>
-              {item.isTrue ? (
-                <StyledOption
-                  onClick={() => handleOptionSelect(item)}
-                  key={key}
-                  bg={({ theme }) => theme.colors.trueAnswer}
-                  selected={selected}
-                >
-                  {item.title}
-                  {selected && (
-                    <Flex>
-                      <BsCheckLg />
-                    </Flex>
-                  )}
-                </StyledOption>
-              ) : (
-                <StyledOption
-                  onClick={() => handleOptionSelect(item)}
-                  key={key}
-                  bg={({ theme }) => theme.colors.wrongAnswer}
-                  selected={selected}
-                >
-                  {item.title}
-                  {selected && (
-                    <Flex>
-                      <FiXCircle />
-                    </Flex>
-                  )}
-                </StyledOption>
-              )}
-            </>
+          options.map((item, index) => (
+            <Option
+              key={index}
+              option={item}
+              onOptionSelect={handleOptionSelect}
+              selected={selected}
+              truthness={truthness}
+            />
           ))
         ) : (
           <Result mark={mark} onTryAgain={handleClickTryAgain} />

@@ -4,7 +4,7 @@ import { StyledImage } from "./styled/Image.styled";
 import { StyledText } from "./styled/Text.styled";
 import ResultImage from "../public/images/undraw_winners_ao2o 2.svg";
 
-export const Result = ({ mark, onTryAgain }) => {
+const Result = ({ mark, onTryAgain }) => {
   return (
     <>
       <Container>
@@ -39,3 +39,4 @@ export const Result = ({ mark, onTryAgain }) => {
     </>
   );
 };
+export default Result;

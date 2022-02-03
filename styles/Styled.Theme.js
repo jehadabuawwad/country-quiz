@@ -7,6 +7,7 @@ const Theme = {
     unSelectedButtonBackground: "#FFF",
     defaultButtonText: "rgba(96, 102, 208, 0.8)",
     hoveredButtonText: "#FFF",
+    hoveredButtonBackground: "#F9A826",
     nextButtonBackgroundColor: "#F9A826",
     white: "#FFF",
     trueAnswer: "#60BF88",
