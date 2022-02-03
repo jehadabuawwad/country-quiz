@@ -13,6 +13,7 @@ import { StyledButton } from "./styled/Button.styled";
 
 import QuestionImage from "../public/images/undraw_adventure_4hum 1.svg";
 import { questions } from "../public/data";
+import { Result } from "./Result";
 
 const Card = () => {
   const [id, setId] = useState(0);
@@ -34,20 +35,37 @@ const Card = () => {
     setSelect("");
   };
 
+  const handleClickTryAgain = () => {
+    setId(0);
+    setMark(0)
+    setTruthness(false);
+    setSelect("");
+  };
   return (
     <StyledCard>
       <Flex>
-        <StyledText title>Country quiz</StyledText>
-        <StyledImage
-          as='img'
-          src={QuestionImage}
-          alt='question-image'
-          id={id}
-        />
+        {id < questions.length && (
+          <>
+            <StyledText
+              tp='-125px'
+              title
+              color={({ theme }) => theme.colors.appTitle}
+            >
+              Country quiz
+            </StyledText>
+            <StyledImage
+              as='img'
+              src={QuestionImage}
+              alt='question-image'
+              marker='intro-image'
+            />
+          </>
+        )}
       </Flex>
       <Container>
-        <StyledText question>{text}</StyledText>
-        {options &&
+        <StyledText tp="-40px" question>{text}</StyledText>
+        {id < questions.length ? (
+          options &&
           options.map((item, key) => (
             <>
               {item.isTrue ? (
@@ -80,12 +98,20 @@ const Card = () => {
                 </StyledOption>
               )}
             </>
-          ))}
+          ))
+        ) : (
+          <Result mark={mark} onTryAgain={handleClickTryAgain} />
+        )}
       </Container>
 
       <Flex js='flex-end'>
         {selected && truthness && (
-          <StyledButton width="116px" height="56px" onClick={handleClickNext} next>
+          <StyledButton
+            width='116px'
+            height='56px'
+            onClick={handleClickNext}
+            next
+          >
             Next
           </StyledButton>
         )}

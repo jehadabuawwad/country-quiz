@@ -11,6 +11,8 @@ const Theme = {
     white: "#FFF",
     trueAnswer: "#60BF88",
     wrongAnswer: "#EA8282",
+    appTitle:"#F2F2F2",
+    resultTitle:"#1D355D"
   },
   mobile: "576px",
   laptop: "960px",

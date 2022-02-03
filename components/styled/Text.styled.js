@@ -1,14 +1,20 @@
 import styled from "styled-components";
 
 export const StyledText = styled.p`
-  width: ${({ title }) => (title ? "273px" : "400px")} 273px;
+  width: ${({ title }) => (title ? "273px" : "400px")};
   height: ${({ title }) => (title ? "50px" : "36px")};
-  margin-top: ${({ title }) => (title ? "-125px" : "-36px")};
-  color: ${({ title }) => (title ? "#f2f2f2" : "#2f527b")};
+  margin-top: ${({ tp }) => tp};
+  color: ${({ color }) => color};
   line-height: ${({ title }) => (title ? "54px" : "36px")};
   font-size: ${({ title }) => (title ? "36px" : "20px")};
   font-style: normal;
-  font-weight: bold;
+  font-weight: ${({ result }) => (result ? "100" : "bold")};
   text-align: center;
   text-transform: uppercase;
+  opacity: 1;
+
+  & > span {
+    color: #87cc9b;
+    font-size: 35px;
+  }
 `;

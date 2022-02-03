@@ -6,5 +6,5 @@ export const StyledImage = styled(Image)`
   position: relative;
   top: -75px;
   right: -15px;
-  visibility: ${({ id }) => (id > 12 ? "visible" : "hidden")};
+  top: ${({ marker }) => (marker === "result-image" && "10px")};
 `;
