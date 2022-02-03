@@ -1,13 +1,9 @@
-import { useRouter } from "next/router";
-
 import Head from "next/head";
 
-import { Container } from "../components/styled/Container.styled";
+import Container from "../styles/Styled.Container";
 import Card from "../components/Card";
 
 export default function Home() {
-  const router = useRouter();
-  const { id } = router.query;
   return (
     <div>
       <Head>
@@ -17,7 +13,7 @@ export default function Home() {
       </Head>
 
       <Container width='100%' height='100vh'>
-        <Card id={id} />
+        <Card />
       </Container>
 
       <footer></footer>

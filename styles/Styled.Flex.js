@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
-export const Flex = styled.div`
+const Flex = styled.div`
   display: flex;
-  justify-content: flex-end;
-  & > div {
-    flex: 1;
-    flex-grow: 1;
-  }
+  flex-direction: row;
+  justify-content: ${({ js }) => (js === "flex-end" ? "flex-end" : "center")};
+  align-items: center;
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
 `;
+
+export default Flex;

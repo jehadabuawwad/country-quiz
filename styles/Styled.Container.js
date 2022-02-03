@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,3 +8,5 @@ export const Container = styled.div`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
 `;
+
+export default Container;
