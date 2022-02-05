@@ -27,4 +27,8 @@ export const StyledOption = styled.div`
     margin-right: 10px;
     margin-top: -25px;
   }
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    width: 360px;
+  } ;
 `;

@@ -17,4 +17,10 @@ export const StyledText = styled.p`
     color: #87cc9b;
     font-size: 35px;
   }
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    font-size: ${({ title }) => (title ? "28px" : "20px")};
+    padding-left:10px;
+    padding-right: 10px;
+  } ;
 `;

@@ -16,9 +16,11 @@ export const StyledButton = styled.button`
   font-size: 18px;
   font-weight: 700;
 
-
   cursor: pointer;
   &:hover {
     opacity: 0.8;
   }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    bottom: 150px;
+  } ;
 `;
