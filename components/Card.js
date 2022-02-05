@@ -16,29 +16,33 @@ import { questions } from "../public/data";
 
 const Card = () => {
   const [id, setId] = useState(0);
-  const [selected, setSelect] = useState("");
+  const [selected, setSelect] = useState({});
   const [truthness, setTruthness] = useState(false);
   const [mark, setMark] = useState(0);
 
   const { text, options } = id < questions.length && questions[id];
 
   const handleOptionSelect = (option) => {
-    setSelect(option);
+    option.isSelected = true;
     option.isTrue && setTruthness(true);
     option.isTrue ? setMark(mark + 1) : setMark(mark - 1);
+    setSelect(option);
   };
 
   const handleClickNext = () => {
     setId(id + 1);
+    setSelect({});
     setTruthness(false);
-    setSelect("");
   };
 
   const handleClickTryAgain = () => {
     setId(0);
     setMark(0);
+    setSelect({});
     setTruthness(false);
-    setSelect("");
+    questions.map((item) =>
+      item.options.map((item) => (item.isSelected = false))
+    );
   };
   return (
     <StyledCard>
@@ -61,7 +65,7 @@ const Card = () => {
           </>
         )}
       </Flex>
-      
+
       <Container>
         <StyledText tp='-40px' question>
           {text}
@@ -71,9 +75,8 @@ const Card = () => {
             <Option
               key={index}
               option={item}
-              onOptionSelect={handleOptionSelect}
               selected={selected}
-              truthness={truthness}
+              onOptionSelect={handleOptionSelect}
             />
           ))
         ) : (

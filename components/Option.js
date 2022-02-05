@@ -5,27 +5,25 @@ import { StyledOption } from "./styled/Option.styled";
 import { FiXCircle } from "react-icons/fi";
 import { BsCheckLg } from "react-icons/bs";
 
-const Option = ({ option, selected, truthness, onOptionSelect }) => {
+const Option = ({ option, selected, onOptionSelect }) => {
   return (
     <Container>
       <StyledOption
         onClick={() => onOptionSelect(option)}
         status={option.isTrue}
-        selected={selected}
-        truthness={truthness}
+        selected={option.isSelected}
       >
         {option.title}
-        {selected && option.isTrue && (
-          <Flex>
-            <BsCheckLg />
-          </Flex>
-        )}
-
-        {selected && !option.isTrue && (
-          <Flex>
-            <FiXCircle />
-          </Flex>
-        )}
+        {selected.isSelected === option.isSelected &&
+          (option.isSelected && option.isTrue ? (
+            <Flex js='flex-end'>
+              <BsCheckLg />
+            </Flex>
+          ) : (
+            <Flex js='flex-end'>
+              <FiXCircle />
+            </Flex>
+          ))}
       </StyledOption>
     </Container>
   );

@@ -11,6 +11,7 @@ export const StyledOption = styled.div`
   margin-top: 15px;
   padding-top: 15px;
   padding-left: 18px;
+  padding-right: 10px;
   font-size: 18px;
   line-height: 27px;
   font-weight: 500;
