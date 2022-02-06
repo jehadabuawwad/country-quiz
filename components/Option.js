@@ -14,16 +14,14 @@ const Option = ({ option, selected, onOptionSelect }) => {
         selected={option.isSelected}
       >
         {option.title}
-        {selected.isSelected === option.isSelected &&
-          (option.isSelected && option.isTrue ? (
-            <Flex js='flex-end'>
+        <Flex justify='flex-end'>
+          {selected.isSelected === option.isSelected &&
+            (option.isSelected && option.isTrue ? (
               <BsCheckLg />
-            </Flex>
-          ) : (
-            <Flex js='flex-end'>
+            ) : (
               <FiXCircle />
-            </Flex>
-          ))}
+            ))}
+        </Flex>
       </StyledOption>
     </Container>
   );

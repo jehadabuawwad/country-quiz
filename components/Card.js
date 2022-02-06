@@ -84,7 +84,7 @@ const Card = () => {
         )}
       </Container>
 
-      <Flex js='flex-end'>
+      <Flex justify='flex-end'>
         {selected && truthness && (
           <StyledButton
             width='116px'
