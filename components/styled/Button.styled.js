@@ -4,7 +4,7 @@ export const StyledButton = styled.button`
   position: relative;
   width: ${({ width }) => width};
   height: ${({ height }) => height};
-  margin-top: ${({ next }) => (next ? "75px" : "0px")};
+  margin-top: ${({ next }) => (next ? "25px" : "0px")};
   margin-right: ${({ next }) => (next ? "35px" : "0px")};
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.nextButtonBackgroundColor};
