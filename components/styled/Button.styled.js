@@ -4,7 +4,7 @@ export const StyledButton = styled.button`
   position: absolute;
   width: ${({ width }) => width};
   height: ${({ height }) => height};
-  bottom: 100px;
+  bottom: 150px;
   margin-top: ${({ next }) => (next ? "25px" : "0px")};
   margin-right: ${({ next }) => (next ? "35px" : "0px")};
   color: ${({ theme }) => theme.colors.white};
@@ -20,7 +20,4 @@ export const StyledButton = styled.button`
   &:hover {
     opacity: 0.8;
   }
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    bottom: 150px;
-  } ;
 `;
