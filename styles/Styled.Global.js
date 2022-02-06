@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 import backgroundImage from "../public/images/background.png";
 
 const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
    * {
     box-sizing: border-box;
     }

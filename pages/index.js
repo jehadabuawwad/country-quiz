@@ -1,5 +1,8 @@
 import Head from "next/head";
 
+import Container from "../styles/Styled.Container";
+import Card from "../components/Card";
+
 export default function Home() {
   return (
     <div>
@@ -9,8 +12,10 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main></main>
-      <p>test</p>
+      <Container width='100%' height='100vh'>
+        <Card />
+      </Container>
+
       <footer></footer>
     </div>
   );
