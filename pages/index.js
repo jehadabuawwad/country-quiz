@@ -1,9 +1,10 @@
 import Head from "next/head";
+import Link from "next/link";
 
 import Container from "../styles/Styled.Container";
-import Card from "../components/Card";
+import { StyledText } from "../components/styled/Text.styled";
 
-export default function Home() {
+const Home = () => {
   return (
     <div>
       <Head>
@@ -13,10 +14,15 @@ export default function Home() {
       </Head>
 
       <Container width='100%' height='100vh'>
-        <Card />
+        <Link href='questions/1' passHref>
+          <StyledText clickable color={({ theme }) => theme.colors.white}>
+            Click Here to enter
+          </StyledText>
+        </Link>
       </Container>
 
       <footer></footer>
     </div>
   );
-}
+};
+export default Home;

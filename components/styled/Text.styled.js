@@ -12,7 +12,7 @@ export const StyledText = styled.p`
   text-align: center;
   text-transform: uppercase;
   opacity: 1;
-
+  cursor: ${({ clickable }) => (clickable ? "pointer" : "none")};
   & > span {
     color: #87cc9b;
     font-size: 35px;
@@ -20,7 +20,7 @@ export const StyledText = styled.p`
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     font-size: ${({ title }) => (title ? "28px" : "20px")};
-    padding-left:10px;
+    padding-left: 10px;
     padding-right: 10px;
   } ;
 `;

@@ -1,10 +1,11 @@
 import { useState } from "react";
-
-import Container from "../styles/Styled.Container";
-import Flex from "../styles/Styled.Flex";
+import { useRouter } from "next/router";
 
 import Result from "./Result";
 import Option from "./Option";
+
+import Container from "../styles/Styled.Container";
+import Flex from "../styles/Styled.Flex";
 
 import { StyledCard } from "./styled/Card.styled";
 import { StyledText } from "./styled/Text.styled";
@@ -15,12 +16,17 @@ import QuestionImage from "../public/images/undraw_adventure_4hum 1.svg";
 import { questions } from "../public/data";
 
 const Card = () => {
-  const [id, setId] = useState(0);
+  const router = useRouter();
+
+  let { question_id } = router.query;
+  question_id = Number(question_id);
+  
   const [selected, setSelect] = useState({});
   const [truthness, setTruthness] = useState(false);
   const [mark, setMark] = useState(0);
 
-  const { text, options } = id < questions.length && questions[id];
+  const { text, options } =
+    question_id < questions.length && questions[question_id];
 
   const handleOptionSelect = (option) => {
     option.isSelected = true;
@@ -30,24 +36,26 @@ const Card = () => {
   };
 
   const handleClickNext = () => {
-    setId(id + 1);
     setSelect({});
     setTruthness(false);
+    question_id += 1;
+    router.push(`/questions/${question_id}`);
   };
 
   const handleClickTryAgain = () => {
-    setId(0);
     setMark(0);
     setSelect({});
     setTruthness(false);
     questions.map((item) =>
       item.options.map((item) => (item.isSelected = false))
     );
+    question_id = 0;
+    router.push(`/`);
   };
   return (
     <StyledCard>
       <Flex>
-        {id < questions.length && (
+        {question_id < questions.length && (
           <>
             <StyledText
               tp='-125px'
@@ -70,7 +78,7 @@ const Card = () => {
         <StyledText tp='-40px' question>
           {text}
         </StyledText>
-        {id < questions.length ? (
+        {question_id < questions.length ? (
           options.map((item, index) => (
             <Option
               key={index}
