@@ -20,6 +20,7 @@ VS Code
 #### V 1.0.0
 
 - Project Initilized - 1 Feb 2022
+- Project Released with V 1.0.0 - 7 Feb 2022
 
 ---
 
